@@ -39,14 +39,14 @@ app.configure(function() {
 /*********** END SERVER CONFIGURATION *****************/
 
 // images for people to choose from, all images in /static/img
-valentineImages = ['cat.jpg','ducky.jpg','myLittlePony.jpg'];
+valentineImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
 
 cardArray = []; // this array will hold card data from forms
 
 app.get('/', function(request, response) {
     var templateData = { 
-        pageTitle : 'Valentine Card Maker',
-        message: 'Hello Dynamic Web Class!',
+        pageTitle : 'Week4-dwd',
+        message: 'Hello My test',
         images: valentineImages
     };
     
