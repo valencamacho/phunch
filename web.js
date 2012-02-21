@@ -72,7 +72,7 @@ var newCard = {
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
     
-    response.redirect('/card/' + cardNumber);
+    response.redirect('/book/' + cardNumber);
 });
 
 
