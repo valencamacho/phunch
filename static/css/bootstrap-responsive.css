@@ -280,6 +280,7 @@
 }
 @media (max-width: 980px) {
   body {
+    background-color: #4c4d51;
     padding-top: 0;
   }
   .navbar-fixed-top {
