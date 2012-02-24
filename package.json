@@ -1,9 +1,9 @@
 {
-  "name": "book",
+  "name": "week4",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.5.6",
-    "ejs" : "latest"
-    "mongoose: "2.5.6"
+    "express" : "2.5.6",
+    "ejs" : "latest",
+    "mongoose" : "2.5.6"
   }
 }
