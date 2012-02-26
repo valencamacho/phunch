@@ -38,13 +38,13 @@ input,textarea {
     
 }
 
-textarea#message {
-    width:610px;
+/*textarea#message {
+    width:910px;
     height:200px;
     line-height:32px;
     font-family: 'Dancing Script', cursive;
 }
-
+*/
 
 .container { 
     background: #F06C98;
