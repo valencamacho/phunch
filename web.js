@@ -79,7 +79,7 @@ app.get('/entry/:urlslug',function(request, response){
         if (err) {
             console.log('error');
             console.log(err);
-            response.send("uh oh, can't find that post");
+            response.send("uh oh, can't find that book recommendation");
         }
         
         // use different layout for single entry view
@@ -123,7 +123,7 @@ var newEntry = {
 */
 
     // you have to figure out how to get bookNumber
-    response.redirect('/book/' + bookNumber);
+    response.redirect('/book/' + cardNumber);
  /*
    
     // redirect to show the single post
