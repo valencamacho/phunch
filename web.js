@@ -54,7 +54,7 @@ app.configure(function() {
 /*********** END SERVER CONFIGURATION *****************/
 
 // images for people to choose from, all images in /static/img
-valentineImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
+bookImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
 
 cardArray = []; // this array will hold card data from forms
 
@@ -62,7 +62,7 @@ app.get('/', function(request, response) {
     var templateData = { 
         pageTitle :'Week4-dwd',
         message: 'book',
-        images: valentineImages
+        images: bookImages
     };
     
     response.render("card_form.html",templateData);
@@ -97,7 +97,7 @@ var newEntry = {
     //response.redirect('/book/' + cardNumber);
     
     // redirect to show the single post
-    response.redirect('/entry/' + Books.urlslug); // for example /entry/this-is-a-post
+    response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
 
 });
 
