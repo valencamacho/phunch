@@ -114,7 +114,7 @@ var newEntry = {
     entry.save();
     
 
-/*
+
    
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
@@ -125,8 +125,7 @@ var newEntry = {
 
     // you have to figure out how to get bookNumber
     response.redirect('/book/' + cardNumber);
- /*
-*/
+ 
    
     // redirect to show the single post
     response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
