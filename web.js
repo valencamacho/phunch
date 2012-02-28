@@ -94,7 +94,11 @@ var newEntry = {
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
     
-    response.redirect('/book/' + cardNumber);
+    //response.redirect('/book/' + cardNumber);
+    
+    // redirect to show the single post
+    response.redirect('/entry/' + Books.urlslug); // for example /entry/this-is-a-post
+
 });
 
 
