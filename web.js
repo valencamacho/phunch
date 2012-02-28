@@ -113,13 +113,13 @@ var newEntry = {
     // save the new entry
     entry.save();
     
-   /*
+   
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
     
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
-*/
+
     
     response.redirect('/book/' + cardNumber);
     
