@@ -56,11 +56,9 @@ app.configure(function() {
 // images for people to choose from, all images in /static/img
 bookImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
 
-//bookArray = []; // this array will hold card data from forms
+bookArray = []; // this array will hold card data from forms
 
 app.get('/', function(request, response) {
-
-     
 
   
  var templateData = { 
@@ -79,6 +77,7 @@ app.post('/', function(request, response){
     console.log(request.body);
     
     // Simple data object to hold the form data
+    
 var newEntry = {
         nameto : request.body.nameto,
         namefrom : request.body.namefrom,
@@ -93,13 +92,15 @@ var newEntry = {
     // save the new entry
     entry.save();
     
-    // Put this newCard object into the cardArray
+   /*
+ // Put this newCard object into the cardArray
     cardArray.push(newEntry);
     
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
+*/
     
-    //response.redirect('/book/' + cardNumber);
+    response.redirect('/book/' + cardNumber);
     
     // redirect to show the single post
     response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
