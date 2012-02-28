@@ -12,7 +12,7 @@ app.db = mongoose.connect(process.env.MONGOLAB_URI); //connect to the mongolabs 
 require('./models').configureSchema(schema, mongoose);
 
 // Define your DB Model variables
-var Books = mongoose.model('Books');
+var Book = mongoose.model('Book');
 
 /************* END DATABASE CONFIGURATION *********/
 
@@ -72,7 +72,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/entry',function(request, response){
+app.get('/entry/:urlslug',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
@@ -108,13 +108,13 @@ var newEntry = {
     
     
      // create a new entry
-    var entry = new Books(newEntry);
+    var entry = new Book(newEntry);
     
     // save the new entry
     entry.save();
     
-/*
-   
+
+   /*
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
     
@@ -122,8 +122,8 @@ var newEntry = {
     cardNumber = cardArray.length - 1;
 */
 
-    
-    response.redirect('/book/' + cardNumber);
+    // you have to figure out how to get bookNumber
+    response.redirect('/book/' + bookNumber);
  /*
    
     // redirect to show the single post
@@ -133,7 +133,7 @@ var newEntry = {
 });
 
 
-app.get('/book/:cardNumber', function(request, response){
+app.get('/book/:bookNumber', function(request, response){
     
     // Get the card from cardArray
     cardData = cardArray[request.params.cardNumber]

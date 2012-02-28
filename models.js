@@ -1,16 +1,17 @@
 // export Schemas to web.js
 module.exports.configureSchema = function(Schema, mongoose) {
     
-    // Books  
-    var Books = new Schema({
+    // Book  
+    var Book = new Schema({
       nameto     : String
     , namefrom   : String
     , recommend   : String
     , image       : String
+    , bookNumber  : Number
     , date      : { type: Date, default: Date.now }
        });
 
     // add schemas to Mongoose
-    mongoose.model('Books', Books);
+    mongoose.model('Book', Book);
 
 };
