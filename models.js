@@ -1,7 +1,7 @@
 // export Schemas to web.js
 module.exports.configureSchema = function(Schema, mongoose) {
     
-    // Hunch -  
+    // Book  
     var Books = new Schema({
       nameto     : String
     , namefrom   : String
