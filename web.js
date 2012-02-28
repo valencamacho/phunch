@@ -115,7 +115,7 @@ var newEntry = {
     
 
 
- /*
+ 
   
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
@@ -123,7 +123,7 @@ var newEntry = {
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
 
-*/
+
 
     // you have to figure out how to get bookNumber
     response.redirect('/entry/' + cardNumber);
