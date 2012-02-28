@@ -136,7 +136,7 @@ var newEntry = {
 });
 
 
-app.get('/book/:bookNumber', function(request, response){
+app.get('/book/:cardNumber', function(request, response){
     
     // Get the card from cardArray
     cardData = cardArray[request.params.cardNumber]
