@@ -72,7 +72,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/entry/:urlslug',function(request, response){
+app.get('/entry',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
@@ -113,19 +113,23 @@ var newEntry = {
     // save the new entry
     entry.save();
     
+/*
    
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
     
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
+*/
 
     
     response.redirect('/book/' + cardNumber);
-    
+ /*
+   
     // redirect to show the single post
     response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
 
+*/
 });
 
 

@@ -1,7 +1,7 @@
 // export Schemas to web.js
 module.exports.configureSchema = function(Schema, mongoose) {
     
-    // Book  
+    // Books  
     var Books = new Schema({
       nameto     : String
     , namefrom   : String
