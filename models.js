@@ -6,11 +6,11 @@ module.exports.configureSchema = function(Schema, mongoose) {
       nameto     : String
     , namefrom   : String
     , recommend   : String
-    , book        : String
+    , image       : String
     , date      : { type: Date, default: Date.now }
        });
 
     // add schemas to Mongoose
-    var Book = mongoose.model('Books', Books);
+    mongoose.model('Books', Books);
 
 };

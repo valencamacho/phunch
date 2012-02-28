@@ -2,6 +2,21 @@ var express = require('express'); //
 var ejs = require('ejs'); // 
 var app = express.createServer(express.logger());
 
+var mongoose = require('mongoose'); // include Mongoose MongoDB library
+var schema = mongoose.Schema; 
+
+/************ DATABASE CONFIGURATION **********/
+app.db = mongoose.connect(process.env.MONGOLAB_URI); //connect to the mongolabs database - local server uses .env file
+
+// Include models.js - this file includes the database schema and defines the models used
+require('./models').configureSchema(schema, mongoose);
+
+// Define your DB Model variables
+var Books = mongoose.model('Books');
+
+/************* END DATABASE CONFIGURATION *********/
+
+
 /*********** SERVER CONFIGURATION *****************/
 app.configure(function() {
     
@@ -59,15 +74,22 @@ app.post('/', function(request, response){
     console.log(request.body);
     
     // Simple data object to hold the form data
-var newCard = {
-        to : request.body.to,
-        from : request.body.from,
-        message : request.body.message,
-        image : request.body.image
+var newEntry = {
+        nameto : request.body.nameto,
+        namefrom : request.body.namefrom,
+        recommend : request.body.recommend,
+        image : request.body.image,
     };
     
+    
+     // create a new entry
+    var entry = new Books(newEntry);
+    
+    // save the new entry
+    entry.save();
+    
     // Put this newCard object into the cardArray
-    cardArray.push(newCard);
+    cardArray.push(newEntry);
     
     // Get the position of the card in the cardArray
     cardNumber = cardArray.length - 1;
