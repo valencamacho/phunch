@@ -11,6 +11,6 @@ module.exports.configureSchema = function(Schema, mongoose) {
        });
 
     // add schemas to Mongoose
-    mongoose.model('Books', Books);
+    var Book = mongoose.model('Books', Books);
 
 };
