@@ -45,7 +45,7 @@ cardArray = []; // this array will hold card data from forms
 
 app.get('/', function(request, response) {
     var templateData = { 
-        pageTitle : 'Week4-dwd',
+        pageTitle :'Week4-dwd',
         message: 'book',
         images: valentineImages
     };
