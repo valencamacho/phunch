@@ -71,6 +71,27 @@ app.get('/', function(request, response) {
 });
 
 
+// Display a single blog post
+app.get('/entry/:urlslug',function(request, response){
+    
+    // Get the request blog post by urlslug
+    Book.findOne({urlslug:request.params.urlslug},function(err,post){
+        if (err) {
+            console.log('error');
+            console.log(err);
+            response.send("uh oh, can't find that post");
+        }
+        
+        // use different layout for single entry view
+        post.layout = 'card_display.html';
+        
+        // found the blogpost
+        response.render('card_display.html', newEntry);
+    });
+});
+
+
+
 app.post('/', function(request, response){
     console.log("Inside app.post('/')");
     console.log("form received and includes")
