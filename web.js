@@ -56,10 +56,29 @@ app.configure(function() {
 // images for people to choose from, all images in /static/img
 bookImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
 
-cardArray = []; // this array will hold card data from forms
+//bookArray = []; // this array will hold card data from forms
 
 app.get('/', function(request, response) {
-    var templateData = { 
+
+ var query = Books.find({});
+    //query.sort('date',-1); //sort by date in descending order
+    
+    // run the query and display blog_main.html template if successful
+    query.exec({}, function(err, allPosts){
+        
+        // prepare template data
+        templateData = {
+            posts : allPosts
+        };
+        
+        // render the card_form template with the data above
+        response.render('card_form.html', templateData);
+        
+    });
+    
+
+   /*
+ var templateData = { 
         pageTitle :'Week4-dwd',
         message: 'book',
         images: bookImages
@@ -67,6 +86,7 @@ app.get('/', function(request, response) {
     
     response.render("card_form.html",templateData);
 });
+*/
 
 app.post('/', function(request, response){
     console.log("Inside app.post('/')");
