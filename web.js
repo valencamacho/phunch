@@ -109,7 +109,7 @@ var newEntry = {
         namefrom : request.body.namefrom,
         recommend : request.body.recommend,
         image : request.body.image,
-        bookNumber : request.body.number,
+        //bookNumber : request.body.number,
     };
     
     
@@ -120,7 +120,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/' + newEntry.bookNumber);
+	response.redirect('/book/' + newEntry);
  /*
 
   
