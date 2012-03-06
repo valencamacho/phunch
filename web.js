@@ -74,7 +74,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/book/:newEntry.bookNumber',function(request, response){
+app.get('/entry/:urlslug',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
@@ -106,7 +106,7 @@ var newEntry = {
         namefrom : request.body.namefrom,
         recommend : request.body.recommend,
         image : request.body.image,
-        bookNumber : 1
+        //bookNumber : 1
     };
     
     
@@ -117,7 +117,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/' + newEntry.bookNumber);
+	response.redirect('/book/' + newEntry.imageName);
  /*
 
   
