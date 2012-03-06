@@ -78,7 +78,7 @@ app.get('/', function(request, response) {
 app.get('/book/:newEntry.bookNumber',function(request, response){
     
     // Get the request blog post by urlslug
-    Book.findOne({urlslug:request.params.urlslug},function(err,post){
+    Book.findOne({newEntry.bookNumber},function(err,post){
         if (err) {
             console.log('error');
             console.log(err);
@@ -91,7 +91,7 @@ app.get('/book/:newEntry.bookNumber',function(request, response){
 
         
         // found the blogpost
-        response.render('card_display.html', newEntry);
+        response.render('card_display.html', templateData);
     });
 });
 
