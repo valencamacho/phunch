@@ -91,7 +91,7 @@ app.get('/book/:newEntry.bookNumber',function(request, response){
 
         
         // found the blogpost
-        response.render('card_display.html', templateData);
+        response.render('card_display.html', newEntry);
     });
 });
 
