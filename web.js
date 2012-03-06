@@ -73,7 +73,6 @@ app.get('/', function(request, response) {
 });
 
 
-/*
 // Display a single blog post
 app.get('/book/:newEntry.bookNumber',function(request, response){
     
@@ -92,7 +91,6 @@ app.get('/book/:newEntry.bookNumber',function(request, response){
         response.render('card_display.html', newEntry);
     });
 });
-*/
 
 
 
@@ -143,7 +141,7 @@ var newEntry = {
 });
 
 
-app.get('/book/:newEntry.bookNumber', function(request, response){
+app.get('/book/:imageName', function(request, response){
     
     // building image name eg. bentobox + .jpg = bentobox.jpg
     var requestedImage = request.params.imageName + ".jpg";
