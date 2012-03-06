@@ -84,11 +84,13 @@ app.get('/book/:newEntry.bookNumber',function(request, response){
             response.send("uh oh, can't find that book recommendation");
         }
         
-        // use different layout for single entry view
+      /*
+  // use different layout for single entry view
         post.layout = 'card_display.html';
+*/
         
         // found the blogpost
-        response.render('card_display.html', newEntry);
+        response.render('card_display.html', templateData);
     });
 });
 
