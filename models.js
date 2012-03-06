@@ -7,6 +7,7 @@ module.exports.configureSchema = function(Schema, mongoose) {
     , namefrom   : String
     , recommend   : String
     , image       : String
+    , bookNumber  : Number
     , date      : { type: Date, default: Date.now }
        });
 

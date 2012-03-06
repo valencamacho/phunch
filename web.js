@@ -2,6 +2,8 @@ var express = require('express'); //
 var ejs = require('ejs'); // 
 var app = express.createServer(express.logger());
 
+var http = require('http');
+
 var mongoose = require('mongoose'); // include Mongoose MongoDB library
 var schema = mongoose.Schema; 
 
@@ -72,7 +74,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/entry/:urlslug',function(request, response){
+app.get('/book/:newEntry.bookNumber',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
@@ -104,6 +106,7 @@ var newEntry = {
         namefrom : request.body.namefrom,
         recommend : request.body.recommend,
         image : request.body.image,
+        bookNumber : 1
     };
     
     
@@ -114,8 +117,9 @@ var newEntry = {
     entry.save();
     
 
+	response.redirect('/book/' + newEntry.bookNumber);
+ /*
 
- 
   
  // Put this newCard object into the cardArray
     cardArray.push(newEntry);
@@ -131,31 +135,68 @@ var newEntry = {
    
     // redirect to show the single post
     //response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
+*/
 
 
 });
 
 
-app.get('/book/:cardNumber', function(request, response){
+app.get('/book/:imageName', function(request, response){
+    
+    // building image name eg. bentobox + .jpg = bentobox.jpg
+    var requestedImage = request.params.imageName + ".jpg";
     
     // Get the card from cardArray
-    cardData = cardArray[request.params.cardNumber]
+	Book.find({image : requestedImage}, function (err, booksData) {
+		// books is an array
+		if (booksData) {
+			
+			console.log('got some books');
+			console.log(booksData);
+			console.log("*****************");
+			
+		    var templateData = {
+		    	books : booksData
+		    };
+		    
+		    // Render the card_display template - pass in the cardData
+		    response.render("card_list.html", templateData);
+		    
+		} else {
+		    // card not found. show the 'Card not found' template
+		    response.render("card_not_found.html");
+		    
+		}
     
-    if (cardData != undefined) {
-        
-        // Render the card_display template - pass in the cardData
-        response.render("card_display.html", cardData);
-        
-    } else {
-        // card not found. show the 'Card not found' template
-        response.render("card_not_found.html");
-        
-    }
+	});
     
 });
 
 
+app.get("/hunchtest",function(request, response) {
+	var options = {
+	  host: 'www.google.com',
+	  port: 80,
+	  path: '/',
+	  method: 'GET'
+	};
+	
+	var req = http.request(options, function(res) {
+	  console.log('STATUS: ' + res.statusCode);
+	  console.log('HEADERS: ' + JSON.stringify(res.headers));
+	  res.setEncoding('utf8');
+	  res.on('data', function (chunk) {
+	    console.log('BODY: ' + chunk);
+	    response.send(chuck);
 
+	  });
+	});
+	
+	req.on('error', function(e) {
+	  console.log('problem with request: ' + e.message);
+	});
+	
+})
 
 
 // Make server turn on and listen at defined PORT (or port 3000 if is not defined)
