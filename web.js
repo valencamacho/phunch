@@ -102,17 +102,6 @@ app.get("/book/entryById/:postId", function(request, response) {
                 })
 
             });
-        
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -168,7 +157,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/'+ newEntry);
+	response.redirect('/book/'+ entryById/:postId);
  /*
 
   
