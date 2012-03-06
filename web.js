@@ -117,7 +117,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/' + newEntry.imageName);
+	response.redirect('/book/' + newEntry.bookNumber);
  /*
 
   
@@ -141,7 +141,7 @@ var newEntry = {
 });
 
 
-app.get('/book/:imageName', function(request, response){
+app.get('/book/:newEntry.bookNumber', function(request, response){
     
     // building image name eg. bentobox + .jpg = bentobox.jpg
     var requestedImage = request.params.imageName + ".jpg";
