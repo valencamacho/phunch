@@ -73,9 +73,56 @@ app.get('/', function(request, response) {
     response.render("card_form.html",templateData);
 });
 
+/////////////////////////////////
+
+app.get("/book/entryById/:postId", function(request, response) {
+
+                var requestedPostID = request.params.postId;
+
+                templateData.findById( requestedPostID, function(err, blogpost) {
+
+                    if (err) {
+                        console.log(err);
+                        response.send("an error occurred!");
+                    }
+
+                    if (blogpost == null ) {
+                        console.log('post not found');
+                        response.send("uh oh, can't find that post");
+
+                    } else {
+
+                        // use different layout for single entry view
+                        blogpost.layout = 'card_display.html';
+
+                        // found the blogpost
+                        response.render('card_display.html', templateData);
+                    }
+
+                })
+
+            });
+        
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Display a single blog post
-app.get('/book/:newEntry/:urlslug',function(request, response){
+
+
+
+
+/*
+app.get('/book/newEntry/:urlslug',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
@@ -94,6 +141,7 @@ app.get('/book/:newEntry/:urlslug',function(request, response){
         response.render('card_display.html', templateData);
     });
 });
+*/
 
 
 
@@ -120,7 +168,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/' + newEntry);
+	response.redirect('/book/'+ newEntry);
  /*
 
   
