@@ -77,20 +77,28 @@ app.get('/', function(request, response) {
 app.get('/book/:newEntry.bookNumber',function(request, response){
     
     // Get the request blog post by urlslug
-   /*
- Book.findOne({urlslug:request.params.urlslug},function(err,post){
+    Book.findOne({urlslug:request.params.urlslug},function(err,post){
         if (err) {
             console.log('error');
             console.log(err);
             response.send("uh oh, can't find that book recommendation");
         }
-*/
         
-        // use different layout for single entry view
+         // Render the card_display template - pass in the cardData
+		    response.render("card_display.html", templateData);
+		    
+		} else {
+		    // card not found. show the 'Card not found' template
+		    response.render("card_not_found.html");
+        
+        
+       /*
+ // use different layout for single entry view
         post.layout = 'card_display.html';
         
         // found the blogpost
         response.render('card_display.html', newEntry);
+*/
     });
 });
 
