@@ -168,7 +168,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/'+ newEntry);
+	response.redirect('/book/'+ entryById + postId);
  /*
 
   
