@@ -60,9 +60,10 @@ bookImages = ['habit.jpg','bentobox.jpg','folding.jpg'];
 
 bookArray = []; // this array will hold card data from forms
 
+
+
 app.get('/', function(request, response) {
 
-  
  var templateData = { 
         pageTitle :'Week4-dwd',
         message: 'book',
@@ -108,7 +109,7 @@ var newEntry = {
         namefrom : request.body.namefrom,
         recommend : request.body.recommend,
         image : request.body.image,
-        bookNumber : 1
+        //bookNumber : 1
     };
     
     
