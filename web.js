@@ -75,6 +75,7 @@ app.get('/', function(request, response) {
 
 /////////////////////////////////
 
+/*
 app.get("/book/entryById/:postId", function(request, response) {
 
                 var requestedPostID = request.params.postId;
@@ -102,15 +103,22 @@ app.get("/book/entryById/:postId", function(request, response) {
                 })
 
             });
+        
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Display a single blog post
-
-
-
-
-/*
 app.get('/book/newEntry/:urlslug',function(request, response){
     
     // Get the request blog post by urlslug
@@ -130,7 +138,6 @@ app.get('/book/newEntry/:urlslug',function(request, response){
         response.render('card_display.html', templateData);
     });
 });
-*/
 
 
 
@@ -157,7 +164,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/'+ entryById/:postId);
+	response.redirect('/book/'+ newEntry);
  /*
 
   
