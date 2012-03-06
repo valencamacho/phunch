@@ -74,7 +74,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/entry/:urlslug',function(request, response){
+app.get('/book/:newEntry.bookNumber',function(request, response){
     
     // Get the request blog post by urlslug
     Book.findOne({urlslug:request.params.urlslug},function(err,post){
