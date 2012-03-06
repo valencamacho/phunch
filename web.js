@@ -84,21 +84,11 @@ app.get('/book/:newEntry.bookNumber',function(request, response){
             response.send("uh oh, can't find that book recommendation");
         }
         
-         // Render the card_display template - pass in the cardData
-		    response.render("card_display.html", templateData);
-		    
-		} else {
-		    // card not found. show the 'Card not found' template
-		    response.render("card_not_found.html");
-        
-        
-       /*
- // use different layout for single entry view
+        // use different layout for single entry view
         post.layout = 'card_display.html';
         
         // found the blogpost
         response.render('card_display.html', newEntry);
-*/
     });
 });
 
