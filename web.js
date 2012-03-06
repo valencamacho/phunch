@@ -119,20 +119,27 @@ app.get("/book/entryById/:postId", function(request, response) {
 
 
 // Display a single blog post
-app.get('/book/newEntry/:urlslug',function(request, response){
+app.get('/book/:objectid',function(request, response){
     
-    // Get the request blog post by urlslug
-    Book.findOne({urlslug:request.params.urlslug},function(err,post){
+    // Get the request blog post by objectid
+    Book.findById(request.params.objectid,function(err,post){
         if (err) {
             console.log('error');
             console.log(err);
             response.send("uh oh, can't find that book recommendation");
         }
         
+        templateData = {
+        	layout : 'card_display.html',
+        	post : post
+        }
      
   // use different layout for single entry view
-        post.layout = 'card_display.html';
+        //post.layout = 'card_display.html';
+        
+        console.log(post);
 
+        
         
         // found the blogpost
         response.render('card_display.html', templateData);
@@ -164,7 +171,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/'+ newEntry);
+	response.redirect('/book/'+ entry._id);
  /*
 
   
