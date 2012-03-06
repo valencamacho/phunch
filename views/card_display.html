@@ -4,10 +4,10 @@
     
             <div class="row">
                 <div class="span8 offset2">
-                    <h2>To: <%= post.to %></h2>
+                    <h2>To: <%= post.nameto %></h2>
                     <br>
-                    <h2 class="message">
-                        <%= post.message %>
+                    <h2 class="post">
+                        <%= post.recommend %>
                     </h2>
                     <br>
                     <img class="span8" src="/img/<%= post.image %>" alt="valentine image">
@@ -18,7 +18,7 @@
                 <div class="span10 offset2">
                     
                     
-                    <h2>From: <%= post.from %></h2>
+                    <h2>From: <%= post.namefrom %></h2>
                     
                     <br><br>
                     <h3><a href="/">Recommend another book</a></h3>
