@@ -91,10 +91,8 @@ app.get('/book/:objectid',function(request, response){
         	post : post
         }
      
-  // use different layout for single entry view
-        //post.layout = 'card_display.html';
-        
-        console.log(post);
+          
+         console.log(post);
 
         
         
@@ -129,26 +127,7 @@ var newEntry = {
     
 
 	response.redirect('/book/'+ entry._id);
- /*
-
-  
- // Put this newCard object into the cardArray
-    cardArray.push(newEntry);
-    
-    // Get the position of the card in the cardArray
-    cardNumber = cardArray.length - 1;
-
-
-
-    // you have to figure out how to get bookNumber
-    response.redirect('/entry/' + cardNumber);
  
-   
-    // redirect to show the single post
-    //response.redirect('/entry/' + Books); // for example /entry/this-is-a-post
-*/
-
-
 });
 
 
