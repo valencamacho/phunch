@@ -95,7 +95,6 @@ app.get('/book/:objectid',function(request, response){
          console.log(post);
 
         
-        
         // found the blogpost
         response.render('card_display.html', templateData);
     });
