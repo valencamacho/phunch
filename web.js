@@ -130,7 +130,7 @@ var newEntry = {
 });
 
 
-app.get('/book/:imageName', function(request, response){
+app.get('/book/objectid/:imageName', function(request, response){
     
     // building image name eg. bentobox + .jpg = bentobox.jpg
     var requestedImage = request.params.imageName + ".jpg";
