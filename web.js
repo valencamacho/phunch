@@ -80,7 +80,7 @@ app.get('/', function(request, response) {
 app.get('/book/:objectid',function(request, response){
     
     // Get the request blog post by objectid
-    Book.findById(request.params.objectid,function(err,post){
+    Book.findById(request.params.objectid),function(err,post){
         if (err) {
             console.log('error');
             console.log(err);
