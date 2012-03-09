@@ -133,7 +133,7 @@ var newEntry = {
 app.get('/book/:imageName', function(request, response){
     
     // building image name eg. bentobox + .jpg = bentobox.jpg
-    var requestedImage = request.params.imageName + ".jpg";
+    var requestedImage = request.params.imageName ;
     
     // Get the card from cardArray
 	Book.find({image : requestedImage}, function (err, booksData) {
