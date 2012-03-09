@@ -77,7 +77,7 @@ app.get('/', function(request, response) {
 
 
 // Display a single blog post
-app.get('/book/:objectid',function(request, response){
+app.get('/recommendation/:objectid',function(request, response){
     
     // Get the request blog post by objectid
     Book.findById(request.params.objectid,function(err,post){
@@ -125,7 +125,7 @@ var newEntry = {
     entry.save();
     
 
-	response.redirect('/book/'+ entry._id);
+	response.redirect('/recommendation/'+ entry._id);
  
 });
 
